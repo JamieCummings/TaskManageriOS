@@ -48,11 +48,53 @@ class TaskLibraryViewController: UIViewController, UITabBarDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as?
+            EditGameViewController{
+            //we need to pass through the Game that we'll be editing
+            destination.gameToEdit = currentGame
+        }
+    }
+    // this func allows us to return an array of actions that the row will have, if any
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_
+            , _) in
+            // remove the game at the current index from our game array
+            TaskManager.sharedInstance.removeTask (at: indexPath.row)
+            // delete the row from the table view at the current index path
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let taskforIndex = TaskManager.sharedInstance.getTask(at: indexPath.row)
+        let title = taskforIndex.complete ? "Incomplete" : "Complete"
+        let incompleteOrIncomplete = UITableViewRowAction(style: .normal, title: title) { (_, _) in
+            TaskManager.sharedInstance.cincompleteOrIncomplete(at: indexPath.row)
+            tableView.reloadRows(at: [indexPath], with: .fade)
+        }
+        let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Edit") { (_, _) in
+            self.currentTask = TaskManager.sharedInstance.getGame(at: indexPath.row)
+            self.performSegue(withIdentifier: "segToEdit", sender: self)
+            
+        }
+        
+        showEditScreenAction.backgroundColor = UIColor.blue
+        
+        return [deleteAction, incompleteOrIncomplete, showEditScreenAction]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //this func will get called anytime we go back to this screen so that it updates
+        override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            gameLibraryTableView.reloadData()
+        }
+        @IBAction func unwindToGameLibraryList(segue:
+            UIStoryboardSegue){ }
     }
     
 
