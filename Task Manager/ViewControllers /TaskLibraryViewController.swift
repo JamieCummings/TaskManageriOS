@@ -8,9 +8,11 @@
 
 import UIKit
 
-class TaskLibraryViewController: UIViewController, UITabBarDelegate, UITableViewDataSource {
-
-    var currentTask = Task!
+class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet var taskTableView: UITableView!
+    
+    var currentTask: Task!
     
     // This function can be used to tell how many sections we will have
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,7 +26,7 @@ class TaskLibraryViewController: UIViewController, UITabBarDelegate, UITableView
     // this is where we tell the table view how many cells we will have in a given section
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell") as! gameTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! taskTableViewCell
         let currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
         //cell.titleLabel.text = currentTask.title
         //cell.ratingLabel.text = currentTask.rating
@@ -35,10 +37,10 @@ class TaskLibraryViewController: UIViewController, UITabBarDelegate, UITableView
             cell.statusView.backgroundColor = UIColor.red
         }
         // if the game has a due date, we want to format it into a string and display it on the due
-        if let dueDate = currentTask.dueDate { cell.completionDateLabel.text = formatDate(completionDate)
+        if let completionDate = currentTask.completionDate { cell.completeByDateLabel.text = formatDate(completionDate)
             
         } else {
-            cell.completionDateLabel.text = ""
+            cell.completeByDateLabel.text = ""
         }
         return cell
     }
@@ -50,9 +52,9 @@ class TaskLibraryViewController: UIViewController, UITabBarDelegate, UITableView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as?
-            EditGameViewController{
+            EditTaskViewController{
             //we need to pass through the Game that we'll be editing
-            destination.gameToEdit = currentGame
+            destination.taskToEdit = currentTask
         }
     }
     // this func allows us to return an array of actions that the row will have, if any
@@ -69,11 +71,11 @@ class TaskLibraryViewController: UIViewController, UITabBarDelegate, UITableView
         let taskforIndex = TaskManager.sharedInstance.getTask(at: indexPath.row)
         let title = taskforIndex.complete ? "Incomplete" : "Complete"
         let incompleteOrIncomplete = UITableViewRowAction(style: .normal, title: title) { (_, _) in
-            TaskManager.sharedInstance.cincompleteOrIncomplete(at: indexPath.row)
+            TaskManager.sharedInstance.incompleteOrIncomplete(at: indexPath.row)
             tableView.reloadRows(at: [indexPath], with: .fade)
         }
         let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Edit") { (_, _) in
-            self.currentTask = TaskManager.sharedInstance.getGame(at: indexPath.row)
+            self.currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
             self.performSegue(withIdentifier: "segToEdit", sender: self)
             
         }
@@ -87,15 +89,16 @@ class TaskLibraryViewController: UIViewController, UITabBarDelegate, UITableView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        //this func will get called anytime we go back to this screen so that it updates
-        override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-            gameLibraryTableView.reloadData()
-        }
-        @IBAction func unwindToGameLibraryList(segue:
-            UIStoryboardSegue){ }
     }
+    
+    //this func will get called anytime we go back to this screen so that it updates
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        taskTableView.reloadData()
+    }
+    
+    @IBAction func unwindToTaskLibraryList(segue:
+        UIStoryboardSegue) { }
     
 
     /*

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class taskTableTableViewCell: UITableViewCell {
+class taskTableViewCell: UITableViewCell {
 
     @IBOutlet weak var tasktitleLabel: UILabel!
     

@@ -9,11 +9,11 @@
 import Foundation
 import RealmSwift
 
-class Game: Object {
+class Task: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var taskDescription: String = ""
-    @objc dynamic var completebyDate: Date? = nil
+    @objc dynamic var completionDate: Date? = nil
     @objc dynamic var complete: Bool = true
-    @objc dynamic var priortyLevel: String = ""
+    @objc dynamic var priorityLevel: String = ""
 }
 

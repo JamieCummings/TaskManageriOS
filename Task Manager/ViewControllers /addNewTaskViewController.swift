@@ -8,7 +8,7 @@
 
 import UIKit
 
-class addNewTaskViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class addNewTaskViewController: UIViewController {
     
     // this func shows how many componets the view needs
     //func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -59,7 +59,7 @@ class addNewTaskViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
         var priority: String!
         
-        switch newPriorityLevel {
+        switch newPriorityLevel.selectedSegmentIndex {
         case 0:
             priority = "High"
         case 1:
@@ -74,8 +74,8 @@ class addNewTaskViewController: UIViewController, UIPickerViewDataSource, UIPick
         let newTask = Task()
         
         newTask.title = title
-        newTask.taskDetails = taskDetails
-        newTask.priority = priority
+        newTask.taskDescription = taskDescription
+        newTask.priorityLevel = priority
         
         TaskManager.sharedInstance.addTask(task: newTask)
     

@@ -17,12 +17,12 @@ class TaskManager {
     
     // we are creating a private initalizer so that no instance of this class can  be made anywhere else
     private init () {
-        taskArray = realm.objects(task.self)
+        taskArray = realm.objects(Task.self)
     }
     
     
     // Results container for storing our Games. This function very similarly to an array or dictionary.
-    private var taskArray: Results<Game>
+    private var taskArray: Results<Task>
     
     //tries to create a reference to the local Realm database
     let realm = try! Realm()
@@ -52,19 +52,19 @@ class TaskManager {
     }
     
     //func to mark a task complete or incomplete
-    func checkGameInOrOut(at index: Int) {
+    func incompleteOrIncomplete(at index: Int) {
         
-        let gameForIndex = gameArray[index]
+        let taskForIndex = taskArray[index]
         
         try! realm.write {
-            gameForIndex.checkedIn = !gameForIndex.checkedIn
+            taskForIndex.complete = !taskForIndex.complete
             
-            if gameForIndex.checkedIn {
+            if taskForIndex.complete {
                 // remove any existing due date
-                gameForIndex.dueDate = nil
+                taskForIndex.completionDate = nil
             } else{
                 //add a new due date, since the game has just been checked out
-                taskForIndex.dueDate = Calendar.current.date(byAdding: .day, value: 14, to: Date())
+                taskForIndex.completionDate = Calendar.current.date(byAdding: .day, value: 14, to: Date())
                 
                 // schedule a local notification at the time of the game's due date
                 let center  = UNUserNotificationCenter.current()
@@ -74,7 +74,7 @@ class TaskManager {
                 content.body = "Your task is due!"
                 
                 let triggerDate =
-                    Calendar.current.dateComponents([.year,.month, .day, .hour, .minute, .second], from: gameForIndex.dueDate!)
+                    Calendar.current.dateComponents([.year,.month, .day, .hour, .minute, .second], from: taskForIndex.completionDate!)
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
                 
                 let identifier = taskForIndex.title

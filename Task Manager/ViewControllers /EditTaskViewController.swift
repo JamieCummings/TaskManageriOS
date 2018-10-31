@@ -10,44 +10,26 @@ import UIKit
 import RealmSwift
 
 
-class EditTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class EditTaskViewController: UIViewController {
     
     var taskToEdit: Task!
     
+    @IBOutlet weak var editTitle: UITextField!
+    @IBOutlet weak var editDetails: UITextField!
+    @IBOutlet weak var priorityLevelSegControl: UISegmentedControl!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
-    @IBAction func editDiscription(_ sender: UITextField) {
-    }
-    @IBAction func editTitle(_ sender: UITextField) {
-    }
     
-    @IBAction func priorityLevelSegControl(_ sender: UISegmentedControl) {
-    }
-    
-    @IBAction func dueDatePicker(_ sender: UIDatePicker) {
-    }
-    
-    @IBAction func editTaskButton(_ sender: UIButton) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print(taskToEdit.description)
         editTitle.text = taskToEdit.title
-        editDiscription.text = taskToEdit.taskDescription
+        editDetails.text = taskToEdit.taskDescription
         
-        switch taskToEdit.priority {
-        case "High":
-            priorityLevelSegControl.selectedSegmentIndex = 0
-        case "Medium":
-            priorityLevelSegControl.selectedSegmentIndex = 1
-        case "Low":
-            priorityLevelSegControl.selectedSegmentIndex = 2
-        default:
-            
-            priorityLevelSegControl.selectedSegmentIndex = 0
-        }
-    
+        
+        
         
         // Do any additional setup after loading the view.
         
@@ -61,17 +43,17 @@ class EditTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func pushedEditButton(_ sender: UIButton) {
         // this will allow the new edits to be submitted
-        guard let task = editTitle.text, title.trimmingCharacters(in: .whitespacesAndNewlines) != "",
-            let taskDescription = editDiscription.text,
+        guard let title = editTitle.text, title.trimmingCharacters(in: .whitespacesAndNewlines) != "",
+            let taskDescription = editDetails.text,
             taskDescription.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
                 error()
                 //show an error and return
                 return
-    }
+        }
         var priority: String!
         
         switch
-        priorityLevelSegContro.selectedSegmentIndex {
+        priorityLevelSegControl.selectedSegmentIndex {
         case 0:
             priority = "High"
         case 1:
@@ -87,24 +69,24 @@ class EditTaskViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         try! realm.write {
             taskToEdit.title = title
             taskToEdit.taskDescription = taskDescription
-            taskToEdit.priorityLevel = priorityLevel
+            taskToEdit.priorityLevel = priority
             //taskToEdit.genre = pickerData[editGenrePicker.selectedRow(inComponent: 0)]
         }
         
         self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
-    
+        
     }
-
-}
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+
