@@ -33,6 +33,7 @@ class EditTaskViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
+    
     func error() {
         let errorAlert = UIAlertController(title: "ERROR", message: "Please fill out all info to edit the task.", preferredStyle: .alert)
         let closeAction = UIAlertAction(title:"Close", style: .default, handler: nil)

@@ -9,7 +9,6 @@
 import Foundation
 
 // this is for storing func that will be called through out the app that wont fit in to another file
-
 func formatDate(_ date:Date) -> String {
     let formatter = DateFormatter()
     

@@ -10,7 +10,6 @@
 		07BE2E2A218B4CBC00B1D233 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */; };
 		07BE2E2C218B55CC00B1D233 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE2E2B218B55CC00B1D233 /* Extensions.swift */; };
 		07F5183B2188AAE100692C6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5183A2188AAE100692C6C /* AppDelegate.swift */; };
-		07F5183D2188AAE100692C6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5183C2188AAE100692C6C /* ViewController.swift */; };
 		07F518402188AAE100692C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F5183E2188AAE100692C6C /* Main.storyboard */; };
 		07F518422188AAE300692C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F518412188AAE300692C6C /* Assets.xcassets */; };
 		07F518452188AAE300692C6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F518432188AAE300692C6C /* LaunchScreen.storyboard */; };
@@ -30,7 +29,6 @@
 		07BE2E2B218B55CC00B1D233 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		07F518372188AAE100692C6C /* Task Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F5183A2188AAE100692C6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		07F5183C2188AAE100692C6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		07F5183F2188AAE100692C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07F518412188AAE300692C6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07F518442188AAE300692C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				07F5183E2188AAE100692C6C /* Main.storyboard */,
+				07F518432188AAE300692C6C /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -71,7 +70,6 @@
 		07F5182E2188AAE100692C6C = {
 			isa = PBXGroup;
 			children = (
-				075AEEE82189FC0200AFC740 /* Storyboards */,
 				07F518392188AAE100692C6C /* Task Manager */,
 				07F518382188AAE100692C6C /* Products */,
 				17089CCC4D098AD871BAB77F /* Pods */,
@@ -90,12 +88,12 @@
 		07F518392188AAE100692C6C /* Task Manager */ = {
 			isa = PBXGroup;
 			children = (
+				075AEEE82189FC0200AFC740 /* Storyboards */,
 				07F518582188D4D700692C6C /* ViewControllers  */,
 				07F5184F2188D04D00692C6C /* Components */,
 				07F5184C2188B2DF00692C6C /* Utilities  */,
 				07F5183A2188AAE100692C6C /* AppDelegate.swift */,
 				07F518412188AAE300692C6C /* Assets.xcassets */,
-				07F518432188AAE300692C6C /* LaunchScreen.storyboard */,
 				07F518462188AAE300692C6C /* Info.plist */,
 			);
 			path = "Task Manager";
@@ -116,7 +114,6 @@
 				07F518522188D17100692C6C /* taskTableViewCell.swift */,
 				07F518542188D2E200692C6C /* TaskManager.swift */,
 				07F518562188D46400692C6C /* Utilities.swift */,
-				07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */,
 				07BE2E2B218B55CC00B1D233 /* Extensions.swift */,
 			);
 			path = Components;
@@ -125,7 +122,7 @@
 		07F518582188D4D700692C6C /* ViewControllers  */ = {
 			isa = PBXGroup;
 			children = (
-				07F5183C2188AAE100692C6C /* ViewController.swift */,
+				07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */,
 				07F518592188D7F400692C6C /* EditTaskViewController.swift */,
 				07F5185F2188E38B00692C6C /* addNewTaskViewController.swift */,
 				07F518612189D9FB00692C6C /* TaskLibraryViewController.swift */,
@@ -266,7 +263,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07F518572188D46400692C6C /* Utilities.swift in Sources */,
-				07F5183D2188AAE100692C6C /* ViewController.swift in Sources */,
 				07F518622189D9FB00692C6C /* TaskLibraryViewController.swift in Sources */,
 				07F518532188D17100692C6C /* taskTableViewCell.swift in Sources */,
 				07F518552188D2E200692C6C /* TaskManager.swift in Sources */,

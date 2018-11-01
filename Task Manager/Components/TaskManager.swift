@@ -28,7 +28,7 @@ class TaskManager {
     let realm = try! Realm()
     
     // function to get the number of games we have
-    func getTaskCount() -> Int{
+    func getTaskCount() -> Int {
         return taskArray.count
     }
     
