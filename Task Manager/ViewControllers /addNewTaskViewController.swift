@@ -15,10 +15,10 @@ class addNewTaskViewController: UIViewController {
         //return 1
     //}
     // func shows how many rows are needed on the view
-   // func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    //func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         //return pickerData.count
     //}
-    // func gives the title for the row
+     //func gives the title for the row
     //func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //return pickerData[row]
    // }
@@ -42,6 +42,7 @@ class addNewTaskViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
     func error() {
         let errorAlert = UIAlertController(title: "ERROR", message: "Please fill out all info to add a new task.", preferredStyle: .alert)
         let closeAction = UIAlertAction(title:"Close", style: .default, handler: nil)
@@ -79,7 +80,7 @@ class addNewTaskViewController: UIViewController {
         
         TaskManager.sharedInstance.addTask(task: newTask)
     
-    self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
+        self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
     }
     
     

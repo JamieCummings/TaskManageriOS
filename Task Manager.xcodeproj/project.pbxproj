@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07BE2E2A218B4CBC00B1D233 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */; };
+		07BE2E2C218B55CC00B1D233 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE2E2B218B55CC00B1D233 /* Extensions.swift */; };
 		07F5183B2188AAE100692C6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5183A2188AAE100692C6C /* AppDelegate.swift */; };
 		07F5183D2188AAE100692C6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5183C2188AAE100692C6C /* ViewController.swift */; };
 		07F518402188AAE100692C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F5183E2188AAE100692C6C /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		07BE2E2B218B55CC00B1D233 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		07F518372188AAE100692C6C /* Task Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F5183A2188AAE100692C6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F5183C2188AAE100692C6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				07F518522188D17100692C6C /* taskTableViewCell.swift */,
 				07F518542188D2E200692C6C /* TaskManager.swift */,
 				07F518562188D46400692C6C /* Utilities.swift */,
+				07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */,
+				07BE2E2B218B55CC00B1D233 /* Extensions.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -267,6 +273,8 @@
 				07F518512188D09600692C6C /* Task.swift in Sources */,
 				07F5185A2188D7F400692C6C /* EditTaskViewController.swift in Sources */,
 				07F518602188E38B00692C6C /* addNewTaskViewController.swift in Sources */,
+				07BE2E2A218B4CBC00B1D233 /* LogInViewController.swift in Sources */,
+				07BE2E2C218B55CC00B1D233 /* Extensions.swift in Sources */,
 				07F5183B2188AAE100692C6C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

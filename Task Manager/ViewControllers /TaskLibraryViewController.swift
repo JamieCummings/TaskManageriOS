@@ -28,8 +28,8 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! taskTableViewCell
         let currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
-        //cell.titleLabel.text = currentTask.title
-        //cell.ratingLabel.text = currentTask.rating
+        cell.tasktitleLabel.text = currentTask.title
+        
         
         if currentTask.complete {
             cell.statusView.backgroundColor = UIColor.green
@@ -90,6 +90,8 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
 
         // Do any additional setup after loading the view.
     }
+    
+    
     
     //this func will get called anytime we go back to this screen so that it updates
     override func viewDidAppear(_ animated: Bool) {

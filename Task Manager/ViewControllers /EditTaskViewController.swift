@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RealmSwift
+
 
 
 class EditTaskViewController: UIViewController {
@@ -24,7 +24,6 @@ class EditTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(taskToEdit.description)
         editTitle.text = taskToEdit.title
         editDetails.text = taskToEdit.taskDescription
         
@@ -64,14 +63,7 @@ class EditTaskViewController: UIViewController {
             priority = "Low"
         }
         
-        let realm = try! Realm()
-        
-        try! realm.write {
-            taskToEdit.title = title
-            taskToEdit.taskDescription = taskDescription
-            taskToEdit.priorityLevel = priority
-            //taskToEdit.genre = pickerData[editGenrePicker.selectedRow(inComponent: 0)]
-        }
+       
         
         self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
         
