@@ -7,12 +7,14 @@
 //
 
 import UIKit
-
+import RealmSwift
 
 
 class EditTaskViewController: UIViewController {
     
     var taskToEdit: Task!
+    
+    
     
     @IBOutlet weak var editTitle: UITextField!
     @IBOutlet weak var editDetails: UITextField!
@@ -23,7 +25,7 @@ class EditTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(taskToEdit.description)
         editTitle.text = taskToEdit.title
         editDetails.text = taskToEdit.taskDescription
         
@@ -64,7 +66,13 @@ class EditTaskViewController: UIViewController {
             priority = "Low"
         }
         
-       
+        let editTask = Task()
+        editTask.title = title
+        editTask.taskDescription = taskDescription
+        editTask.priorityLevel = priority
+        
+        TaskManager.sharedInstance.editTask(task: editTask)
+        
         
         self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
         

@@ -27,24 +27,30 @@ class TaskManager {
     //tries to create a reference to the local Realm database
     let realm = try! Realm()
     
-    // function to get the number of games we have
+    // function to get the number of tasks we have
     func getTaskCount() -> Int {
         return taskArray.count
     }
     
-    // function to return a game at a specific index
+    // function to return a task at a specific index
     func getTask(at index: Int) -> Task{
         return taskArray[index]
     }
     
-    //func to add a game to the game library
+    //func to add a task to the task library
     func addTask(task: Task) {
         try! realm.write {
             realm.add(task)
         }
     }
+    // fur to edit a task to the task library
+    func editTask(task: Task) {
+        try! realm.write {
+            realm.add(task)
+        }
+    }
     
-    // func to remove a game from the library using the index we want to remove
+    // func to remove a task from the library using the index we want to remove
     func removeTask(at index: Int){
         try! realm.write {
             realm.delete(getTask(at: index))

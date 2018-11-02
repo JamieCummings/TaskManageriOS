@@ -10,23 +10,6 @@ import UIKit
 
 class addNewTaskViewController: UIViewController {
     
-    // this func shows how many componets the view needs
-    //func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        //return 1
-    //}
-    // func shows how many rows are needed on the view
-    //func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        //return pickerData.count
-    //}
-     //func gives the title for the row
-    //func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        //return pickerData[row]
-   // }
-    
-    // these are the genres that the picker will use
-    //var pickerData: [String] = ["Massively Multiplayer Online", "Simulations", "Adventure", "Real-Time Strategy","Puzzle", "Action", "Stealth Shooter", "Combat","First Person Shooters","Sports","Role-Playing","Educational"]
-
-    
     @IBOutlet weak var newTaskName: UITextField!
     
     @IBOutlet weak var newTaskDetails: UITextField!
@@ -39,10 +22,11 @@ class addNewTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
+    // this func will be called on when there are text fields left blank
     func error() {
         let errorAlert = UIAlertController(title: "ERROR", message: "Please fill out all info to add a new task.", preferredStyle: .alert)
         let closeAction = UIAlertAction(title:"Close", style: .default, handler: nil)
@@ -50,6 +34,7 @@ class addNewTaskViewController: UIViewController {
         self.present(errorAlert, animated: true, completion: nil)
     }
     
+    // this will run whe the New Button is pushed
     @IBAction func newButtonPushed(_ sender: Any) {
         guard let title = newTaskName.text, title.trimmingCharacters(in: .whitespacesAndNewlines) != "",
             let taskDescription = newTaskDetails.text,
@@ -57,9 +42,11 @@ class addNewTaskViewController: UIViewController {
                 error()
                 //show an error and return
                 return
-    }
+        }
+        // shows the priortiy is a variable
         var priority: String!
         
+        // this will take the input selected in the segment
         switch newPriorityLevel.selectedSegmentIndex {
         case 0:
             priority = "High"
@@ -71,27 +58,27 @@ class addNewTaskViewController: UIViewController {
             priority = "Low"
             
         }
-        
+        // default initalizer for the Task class, this will creat a Task usig the default values that were set in the Task class
         let newTask = Task()
-        
+        // setting the properties for the new task using dot notation
         newTask.title = title
         newTask.taskDescription = taskDescription
         newTask.priorityLevel = priority
         
         TaskManager.sharedInstance.addTask(task: newTask)
-    
+        
         self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
     }
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

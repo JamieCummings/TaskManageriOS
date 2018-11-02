@@ -24,9 +24,9 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     // this is where we tell the table view how many cells we will have in a given section
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! taskTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskViewCell") as! taskTableViewCell
         let currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
         cell.tasktitleLabel.text = currentTask.title
         
@@ -44,7 +44,7 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
         }
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -87,7 +87,7 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -102,15 +102,15 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
     @IBAction func unwindToTaskLibraryList(segue:
         UIStoryboardSegue) { }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
