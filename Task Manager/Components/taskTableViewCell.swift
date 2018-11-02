@@ -10,11 +10,12 @@ import UIKit
 
 class taskTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var priorityLabel: UILabel!
     @IBOutlet weak var tasktitleLabel: UILabel!
-    
     @IBOutlet weak var completeByDateLabel: UILabel!
-    
     @IBOutlet weak var statusView: UIView!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

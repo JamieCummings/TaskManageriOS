@@ -33,6 +33,7 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
         let currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
         cell.tasktitleLabel.text = currentTask.title
         
+        cell.priorityLabel.text = currentTask.priorityLevel
         
         if currentTask.complete {
             cell.statusView.backgroundColor = UIColor.green

@@ -201,6 +201,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="completeByDateLabel" destination="uB0-rg-9aV" id="JHc-Nw-vno"/>
+                                            <outlet property="priorityLabel" destination="4BB-YL-6Az" id="kZZ-Ot-xpB"/>
                                             <outlet property="statusView" destination="e28-To-T8j" id="azH-WZ-Oez"/>
                                             <outlet property="tasktitleLabel" destination="zbu-HL-f1G" id="RvH-ez-xna"/>
                                         </connections>
