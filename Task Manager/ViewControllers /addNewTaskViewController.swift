@@ -64,6 +64,7 @@ class addNewTaskViewController: UIViewController {
         newTask.title = title
         newTask.taskDescription = taskDescription
         newTask.priorityLevel = priority
+        newTask.completionDate = newDueDatePicker.date
         
         TaskManager.sharedInstance.addTask(task: newTask)
         

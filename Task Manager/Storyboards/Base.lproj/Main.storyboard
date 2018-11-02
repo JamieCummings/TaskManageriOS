@@ -115,6 +115,38 @@
             </objects>
             <point key="canvasLocation" x="176.80000000000001" y="132.68365817091455"/>
         </scene>
+        <!--Details View Controller-->
+        <scene sceneID="yNh-Ly-Hez">
+            <objects>
+                <viewController id="igr-pa-qB0" customClass="DetailsViewController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Isn-rQ-cs0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detailsLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUt-IQ-Ef3">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kUt-IQ-Ef3" firstAttribute="top" secondItem="V0e-ds-LaA" secondAttribute="top" id="Eej-C9-FEf"/>
+                            <constraint firstItem="kUt-IQ-Ef3" firstAttribute="leading" secondItem="V0e-ds-LaA" secondAttribute="leading" id="P2q-fY-XIt"/>
+                            <constraint firstItem="V0e-ds-LaA" firstAttribute="bottom" secondItem="kUt-IQ-Ef3" secondAttribute="bottom" id="huV-v2-We3"/>
+                            <constraint firstItem="V0e-ds-LaA" firstAttribute="trailing" secondItem="kUt-IQ-Ef3" secondAttribute="trailing" id="i4Y-dG-VAv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V0e-ds-LaA"/>
+                    </view>
+                    <connections>
+                        <outlet property="DetailsLabel" destination="kUt-IQ-Ef3" id="hcF-55-qgn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="565-ZG-l4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2933" y="-666"/>
+        </scene>
         <!--Task Library View Controller-->
         <scene sceneID="xTy-Qw-EQ1">
             <objects>
@@ -171,7 +203,6 @@
                                             <outlet property="completeByDateLabel" destination="uB0-rg-9aV" id="JHc-Nw-vno"/>
                                             <outlet property="statusView" destination="e28-To-T8j" id="azH-WZ-Oez"/>
                                             <outlet property="tasktitleLabel" destination="zbu-HL-f1G" id="RvH-ez-xna"/>
-                                            <segue destination="6aM-WL-Vmb" kind="show" identifier="segToEdit" id="3YF-kp-IKz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -204,6 +235,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="taskTableView" destination="KqX-mJ-MXe" id="6kr-Tl-SM9"/>
+                        <segue destination="igr-pa-qB0" kind="show" identifier="segToDetails" id="LpQ-BA-VFt"/>
+                        <segue destination="6aM-WL-Vmb" kind="show" identifier="segToEdit" id="WYZ-MH-jy1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H6r-od-CcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -232,9 +265,6 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="editTitle:" destination="6aM-WL-Vmb" eventType="editingDidEnd" id="u0G-EG-Dy8"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Details:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibb-XY-36l">
                                         <rect key="frame" x="0.0" y="149.33333333333334" width="414" height="74.666666666666657"/>
@@ -247,9 +277,6 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="editTitle:" destination="6aM-WL-Vmb" eventType="editingDidEnd" id="aVl-6d-URR"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNv-1A-9l4">
                                         <rect key="frame" x="0.0" y="298.66666666666669" width="414" height="74.666666666666686"/>
@@ -265,9 +292,6 @@
                                             <segment title="Low"/>
                                         </segments>
                                         <color key="tintColor" red="1" green="0.1043378405" blue="0.1213977856" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <connections>
-                                            <action selector="priorityLevelSegControl:" destination="6aM-WL-Vmb" eventType="valueChanged" id="tT5-CQ-KVG"/>
-                                        </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete Task By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHp-Z4-wrk">
                                         <rect key="frame" x="0.0" y="448" width="414" height="74.666666666666629"/>
@@ -280,16 +304,12 @@
                                         <date key="date" timeIntervalSinceReferenceDate="562613834.96259999">
                                             <!--2018-10-30 17:37:14 +0000-->
                                         </date>
-                                        <connections>
-                                            <action selector="dueDatePicker:" destination="6aM-WL-Vmb" eventType="valueChanged" id="b7n-uM-BVq"/>
-                                        </connections>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTe-cP-LnR">
                                         <rect key="frame" x="0.0" y="597.33333333333337" width="414" height="74.666666666666629"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Change Task"/>
                                         <connections>
-                                            <action selector="editTaskButton:" destination="6aM-WL-Vmb" eventType="touchUpInside" id="APJ-eB-GuQ"/>
                                             <action selector="pushedEditButton:" destination="6aM-WL-Vmb" eventType="touchUpInside" id="63H-t0-Mx7"/>
                                         </connections>
                                     </button>
@@ -310,9 +330,11 @@
                         <outlet property="editDetails" destination="P7B-rD-UPj" id="fGS-Jh-vCq"/>
                         <outlet property="editTitle" destination="FPE-Ip-48K" id="Lw1-sx-fHc"/>
                         <outlet property="priorityLevelSegControl" destination="rhy-AS-HNp" id="Anf-0K-Aos"/>
+                        <segue destination="fJU-Ux-P0a" kind="unwind" identifier="unwindToTaskList" unwindAction="unwindToTaskLibraryListWithSegue:" id="muO-lU-IfD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl4-1o-i5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="fJU-Ux-P0a" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1996" y="851"/>
         </scene>
@@ -372,10 +394,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rmN-dS-dHe">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rmN-dS-dHe">
                                         <rect key="frame" x="0.0" y="522.66666666666663" width="414" height="74.666666666666629"/>
                                         <date key="date" timeIntervalSinceReferenceDate="562613037.65215302">
                                             <!--2018-10-30 17:23:57 +0000-->
+                                        </date>
+                                        <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                            <!--1970-01-01 11:00:00 +0000-->
                                         </date>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40U-LN-Qfn">
@@ -410,7 +435,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrP-cM-3Y3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5VT-9l-ojA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2722" y="133"/>
+            <point key="canvasLocation" x="3165" y="132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jbZ-3r-x0g">

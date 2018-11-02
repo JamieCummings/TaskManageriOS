@@ -13,6 +13,7 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var taskTableView: UITableView!
     
     var currentTask: Task!
+    var taskToSend: Int?
     
     // This function can be used to tell how many sections we will have
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -21,6 +22,8 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        taskToSend = indexPath.row
+        performSegue(withIdentifier: "segToDetails", sender: self)
     }
     
     // this is where we tell the table view how many cells we will have in a given section
@@ -36,17 +39,18 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             cell.statusView.backgroundColor = UIColor.red
         }
-        // if the game has a due date, we want to format it into a string and display it on the due
-        if let completionDate = currentTask.completionDate { cell.completeByDateLabel.text = formatDate(completionDate)
-            
+        // if the task has a completion date, we want to format it into a string and display it on the due
+        if let completionDate = currentTask.completionDate {
+            cell.completeByDateLabel.text = formatDate(completionDate)
         } else {
             cell.completeByDateLabel.text = ""
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
+        taskToSend = indexPath.row
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -55,6 +59,10 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
             EditTaskViewController{
             //we need to pass through the Game that we'll be editing
             destination.taskToEdit = currentTask
+            
+        }
+        if let destination = segue.destination as? DetailsViewController{
+            destination.currentTask = taskToSend
         }
     }
     // this func allows us to return an array of actions that the row will have, if any

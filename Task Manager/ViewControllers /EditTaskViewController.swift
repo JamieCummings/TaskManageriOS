@@ -25,10 +25,25 @@ class EditTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         print(taskToEdit.description)
         editTitle.text = taskToEdit.title
         editDetails.text = taskToEdit.taskDescription
         
+      
+        
+        switch taskToEdit.priorityLevel {
+        case "high":
+            priorityLevelSegControl.selectedSegmentIndex = 0
+        case "medium":
+            priorityLevelSegControl.selectedSegmentIndex = 1
+        case "low":
+            priorityLevelSegControl.selectedSegmentIndex = 2
+        default:
+            priorityLevelSegControl.selectedSegmentIndex = 2
+            
+        }
         
         
         
@@ -52,26 +67,37 @@ class EditTaskViewController: UIViewController {
                 //show an error and return
                 return
         }
-        var priority: String!
         
-        switch
-        priorityLevelSegControl.selectedSegmentIndex {
-        case 0:
-            priority = "High"
-        case 1:
-            priority = "Medium"
-        case 2:
-            priority = "Low"
-        default:
-            priority = "Low"
+        
+     let realm = try! Realm()
+        
+        try! realm.write {
+            taskToEdit.title = title
+            taskToEdit.taskDescription = taskDescription
+            taskToEdit.completionDate = datePicker.date
+            
+            var priorityLevel: String!
+            
+            switch priorityLevelSegControl.selectedSegmentIndex {
+            case 0:
+                priorityLevel = "High"
+            case 1:
+                priorityLevel = "Medium"
+            case 2:
+                priorityLevel = "Low"
+            default:
+                priorityLevel = "Low"
+                
+            taskToEdit.priorityLevel = priorityLevel
         }
         
-        let editTask = Task()
-        editTask.title = title
-        editTask.taskDescription = taskDescription
-        editTask.priorityLevel = priority
+       
+            
+        }
         
-        TaskManager.sharedInstance.editTask(task: editTask)
+       
+        
+        TaskManager.sharedInstance.editTask(task: taskToEdit)
         
         
         self.performSegue(withIdentifier: "unwindToTaskList", sender: self)

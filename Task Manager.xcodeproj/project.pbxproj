@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0731FEBF218C897F00453A26 /* TaskLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731FEBE218C897F00453A26 /* TaskLibraryViewController.swift */; };
 		0731FEC1218C89C500453A26 /* taskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731FEC0218C89C500453A26 /* taskTableViewCell.swift */; };
+		0731FEC5218CBE9E00453A26 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731FEC4218CBE9E00453A26 /* DetailsViewController.swift */; };
 		07BE2E2A218B4CBC00B1D233 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */; };
 		07F5183B2188AAE100692C6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5183A2188AAE100692C6C /* AppDelegate.swift */; };
 		07F518402188AAE100692C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F5183E2188AAE100692C6C /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		0731FEBE218C897F00453A26 /* TaskLibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskLibraryViewController.swift; sourceTree = "<group>"; };
 		0731FEC0218C89C500453A26 /* taskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = taskTableViewCell.swift; sourceTree = "<group>"; };
+		0731FEC4218CBE9E00453A26 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		07F518372188AAE100692C6C /* Task Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F5183A2188AAE100692C6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				0731FEBE218C897F00453A26 /* TaskLibraryViewController.swift */,
 				07F518592188D7F400692C6C /* EditTaskViewController.swift */,
 				07F5185F2188E38B00692C6C /* addNewTaskViewController.swift */,
+				0731FEC4218CBE9E00453A26 /* DetailsViewController.swift */,
 			);
 			path = "ViewControllers ";
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				07BE2E2A218B4CBC00B1D233 /* LogInViewController.swift in Sources */,
 				0731FEBF218C897F00453A26 /* TaskLibraryViewController.swift in Sources */,
 				07F5183B2188AAE100692C6C /* AppDelegate.swift in Sources */,
+				0731FEC5218CBE9E00453A26 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
