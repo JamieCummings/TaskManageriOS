@@ -11,9 +11,10 @@ import RealmSwift
 
 
 class EditTaskViewController: UIViewController {
+    // this class all the code that will be used on the Edit Task screen
     
     var taskToEdit: Task!
-    
+    // this is a variable that is part of the Task class
     
     
     @IBOutlet weak var editTitle: UITextField!
@@ -31,8 +32,8 @@ class EditTaskViewController: UIViewController {
         editTitle.text = taskToEdit.title
         editDetails.text = taskToEdit.taskDescription
         
-      
         
+        // taking a string and turning it into an Int
         switch taskToEdit.priorityLevel {
         case "high":
             priorityLevelSegControl.selectedSegmentIndex = 0
@@ -50,7 +51,7 @@ class EditTaskViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
-    
+    // this func will throw an error if any of the info hasn't been filled out.
     func error() {
         let errorAlert = UIAlertController(title: "ERROR", message: "Please fill out all info to edit the task.", preferredStyle: .alert)
         let closeAction = UIAlertAction(title:"Close", style: .default, handler: nil)
@@ -69,7 +70,7 @@ class EditTaskViewController: UIViewController {
         }
         
         
-     let realm = try! Realm()
+        let realm = try! Realm()
         
         try! realm.write {
             taskToEdit.title = title
@@ -88,14 +89,14 @@ class EditTaskViewController: UIViewController {
             default:
                 priorityLevel = "Low"
                 
-            taskToEdit.priorityLevel = priorityLevel
-        }
-        
-       
+                taskToEdit.priorityLevel = priorityLevel
+            }
+            
+            
             
         }
         
-       
+        
         
         TaskManager.sharedInstance.editTask(task: taskToEdit)
         
