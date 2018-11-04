@@ -115,6 +115,44 @@
             </objects>
             <point key="canvasLocation" x="176.80000000000001" y="132.68365817091455"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="dbY-dl-YF1">
+            <objects>
+                <viewController id="qFk-Ns-HUQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vK4-6Q-i0V">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThankYou.png" translatesAutoresizingMaskIntoConstraints="NO" id="OMl-xT-Qa6">
+                                <rect key="frame" x="43" y="172" width="329" height="347"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNG-PC-lqJ">
+                                <rect key="frame" x="170" y="660" width="74" height="32"/>
+                                <state key="normal" title="Log In "/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="DNG-PC-lqJ" id="qPP-kZ-C19">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OMl-xT-Qa6" firstAttribute="leading" secondItem="5jz-mZ-esr" secondAttribute="leading" constant="43" id="1bO-Mg-En7"/>
+                            <constraint firstItem="5jz-mZ-esr" firstAttribute="trailing" secondItem="DNG-PC-lqJ" secondAttribute="trailing" constant="170" id="3Uo-wb-Zqw"/>
+                            <constraint firstItem="5jz-mZ-esr" firstAttribute="bottom" secondItem="DNG-PC-lqJ" secondAttribute="bottom" constant="46" id="BNk-T8-9Yc"/>
+                            <constraint firstItem="5jz-mZ-esr" firstAttribute="bottom" secondItem="OMl-xT-Qa6" secondAttribute="bottom" constant="217" id="D9a-lm-mEN"/>
+                            <constraint firstItem="5jz-mZ-esr" firstAttribute="trailing" secondItem="OMl-xT-Qa6" secondAttribute="trailing" constant="42" id="EV9-WL-Yy2"/>
+                            <constraint firstItem="OMl-xT-Qa6" firstAttribute="top" secondItem="5jz-mZ-esr" secondAttribute="top" constant="152" id="EXU-u0-Vxa"/>
+                            <constraint firstItem="DNG-PC-lqJ" firstAttribute="leading" secondItem="5jz-mZ-esr" secondAttribute="leading" constant="170" id="qjQ-e1-zTn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5jz-mZ-esr"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BqU-G3-KjO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1998.5507246376812" y="-559.23913043478262"/>
+        </scene>
         <!--Details View Controller-->
         <scene sceneID="yNh-Ly-Hez">
             <objects>
@@ -223,6 +261,14 @@
                         <viewLayoutGuide key="safeArea" id="Tcz-eU-jav"/>
                     </view>
                     <navigationItem key="navigationItem" id="O51-sl-XcK">
+                        <barButtonItem key="leftBarButtonItem" title="Logout " id="ajo-ee-enV">
+                            <connections>
+                                <action selector="logoutButton:" destination="fHh-u0-rOE" id="Ogf-iU-xIp"/>
+                                <segue destination="qFk-Ns-HUQ" kind="popoverPresentation" popoverAnchorBarButtonItem="ajo-ee-enV" id="qiu-RG-Qdv">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="8yr-2p-0Kd">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fxu-wQ-LtT">
                                 <rect key="frame" x="311" y="7" width="83" height="30"/>
@@ -458,6 +504,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ThankYou.png" width="225" height="225"/>
         <image name="ToDoList.png" width="203" height="249"/>
     </resources>
 </document>

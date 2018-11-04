@@ -11,6 +11,7 @@
 		0731FEC1218C89C500453A26 /* taskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731FEC0218C89C500453A26 /* taskTableViewCell.swift */; };
 		0731FEC5218CBE9E00453A26 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0731FEC4218CBE9E00453A26 /* DetailsViewController.swift */; };
 		07BE2E2A218B4CBC00B1D233 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */; };
+		07D23816218F4FCD00318EAF /* ThankYou.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D23815218F4FCD00318EAF /* ThankYou.png */; };
 		07F5183B2188AAE100692C6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F5183A2188AAE100692C6C /* AppDelegate.swift */; };
 		07F518402188AAE100692C6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F5183E2188AAE100692C6C /* Main.storyboard */; };
 		07F518422188AAE300692C6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F518412188AAE300692C6C /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		0731FEC0218C89C500453A26 /* taskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = taskTableViewCell.swift; sourceTree = "<group>"; };
 		0731FEC4218CBE9E00453A26 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		07BE2E29218B4CBC00B1D233 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		07D23815218F4FCD00318EAF /* ThankYou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThankYou.png; sourceTree = "<group>"; };
 		07F518372188AAE100692C6C /* Task Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07F5183A2188AAE100692C6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07F5183F2188AAE100692C6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		07F5184C2188B2DF00692C6C /* Utilities  */ = {
 			isa = PBXGroup;
 			children = (
+				07D23815218F4FCD00318EAF /* ThankYou.png */,
 				07F5184D2188B32600692C6C /* ToDoList.png */,
 			);
 			path = "Utilities ";
@@ -207,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D23816218F4FCD00318EAF /* ThankYou.png in Resources */,
 				07F518452188AAE300692C6C /* LaunchScreen.storyboard in Resources */,
 				07F5184E2188B32600692C6C /* ToDoList.png in Resources */,
 				07F518422188AAE300692C6C /* Assets.xcassets in Resources */,
