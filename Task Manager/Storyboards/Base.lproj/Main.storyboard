@@ -34,7 +34,7 @@
                                     <action selector="LogInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hVn-9w-zOR"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ToDoList" translatesAutoresizingMaskIntoConstraints="NO" id="cxt-03-O9k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ToDoList-1" translatesAutoresizingMaskIntoConstraints="NO" id="cxt-03-O9k">
                                 <rect key="frame" x="86" y="55" width="242" height="249"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Manager " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7M-Bi-vRQ">
@@ -505,6 +505,6 @@
     </scenes>
     <resources>
         <image name="ThankYou" width="225" height="225"/>
-        <image name="ToDoList" width="203" height="249"/>
+        <image name="ToDoList-1" width="203" height="249"/>
     </resources>
 </document>

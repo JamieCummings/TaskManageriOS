@@ -11,13 +11,9 @@ import UIKit
 class addNewTaskViewController: UIViewController {
     
     @IBOutlet weak var newTaskName: UITextField!
-    
     @IBOutlet weak var newTaskDetails: UITextField!
-    
     @IBOutlet weak var newPriorityLevel: UISegmentedControl!
-    
     @IBOutlet weak var newDueDatePicker: UIDatePicker!
-    
     @IBOutlet weak var addNewButton: UIButton!
     
     override func viewDidLoad() {

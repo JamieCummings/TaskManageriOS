@@ -46,8 +46,6 @@ class EditTaskViewController: UIViewController {
             
         }
         
-        
-        
         // Do any additional setup after loading the view.
         
     }
@@ -88,19 +86,10 @@ class EditTaskViewController: UIViewController {
                 priorityLevel = "Low"
             default:
                 priorityLevel = "Low"
-                
                 taskToEdit.priorityLevel = priorityLevel
             }
-            
-            
-            
         }
-        
-        
-        
         TaskManager.sharedInstance.editTask(task: taskToEdit)
-        
-        
         self.performSegue(withIdentifier: "unwindToTaskList", sender: self)
         
     }
