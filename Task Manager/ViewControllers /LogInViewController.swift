@@ -12,14 +12,11 @@ class LogInViewController: UIViewController {
     // this page handles the code for the LogIn screen
     
     @IBOutlet weak var UserNameInputTextField: UITextField!
-    
     @IBOutlet weak var PasswordTextField: UITextField!
-    
     @IBOutlet weak var NewUserNameTextField: UITextField!
-    
     @IBOutlet weak var NewPasswordTextField: UITextField!
     
-    //
+    
     let userName = "username"
     let password = "password"
     let newUserName = "newUser"
@@ -55,21 +52,18 @@ class LogInViewController: UIViewController {
                 error()
                 return
             }
-    
-    
         }
         if PasswordTextField.text != password {
             guard let password = PasswordTextField.text, password.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
                 error()
                 return
             }
-    
         }
-        
         UserNameInputTextField.text = ""
         PasswordTextField.text = ""
         self.performSegue(withIdentifier: "showMainScreen", sender: self)
     }
+    
     
     @IBAction func SignUpButton(_ sender: Any) {
         // func handeling the sign up button being pressed. 

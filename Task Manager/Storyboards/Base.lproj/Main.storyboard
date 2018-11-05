@@ -34,7 +34,7 @@
                                     <action selector="LogInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hVn-9w-zOR"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ToDoList.png" translatesAutoresizingMaskIntoConstraints="NO" id="cxt-03-O9k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ToDoList" translatesAutoresizingMaskIntoConstraints="NO" id="cxt-03-O9k">
                                 <rect key="frame" x="86" y="55" width="242" height="249"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Manager " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7M-Bi-vRQ">
@@ -123,7 +123,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThankYou.png" translatesAutoresizingMaskIntoConstraints="NO" id="OMl-xT-Qa6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ThankYou" translatesAutoresizingMaskIntoConstraints="NO" id="OMl-xT-Qa6">
                                 <rect key="frame" x="43" y="172" width="329" height="347"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNG-PC-lqJ">
@@ -504,7 +504,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ThankYou.png" width="225" height="225"/>
-        <image name="ToDoList.png" width="203" height="249"/>
+        <image name="ThankYou" width="225" height="225"/>
+        <image name="ToDoList" width="203" height="249"/>
     </resources>
 </document>

@@ -21,7 +21,7 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return TaskManager.sharedInstance.getTaskCount()
     }
-    
+    // this func will be used to tell what index path the task is in
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         taskToSend = indexPath.row
@@ -29,14 +29,11 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     // this is where we tell the table view how many cells we will have in a given section
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskViewCell") as! taskTableViewCell
         let currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
         cell.tasktitleLabel.text = currentTask.title
-        
         cell.priorityLabel.text = currentTask.priorityLevel
-        
         if currentTask.complete {
             cell.statusView.backgroundColor = UIColor.green
         } else {
@@ -48,29 +45,30 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             cell.completeByDateLabel.text = ""
         }
-        
         return cell
     }
+    
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         taskToSend = indexPath.row
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // this func will take the current task info and pass it to the edit screen 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as?
             EditTaskViewController{
             //we need to pass through the Game that we'll be editing
             destination.taskToEdit = currentTask
-            
         }
         if let destination = segue.destination as? DetailsViewController{
             destination.currentTask = taskToSend
         }
     }
+    
+    
     // this func allows us to return an array of actions that the row will have, if any
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_
             , _) in
             // remove the game at the current index from our game array
@@ -78,7 +76,6 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
             // delete the row from the table view at the current index path
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        
         let taskforIndex = TaskManager.sharedInstance.getTask(at: indexPath.row)
         let title = taskforIndex.complete ? "Incomplete" : "Complete"
         let incompleteOrIncomplete = UITableViewRowAction(style: .normal, title: title) { (_, _) in
@@ -88,11 +85,8 @@ class TaskLibraryViewController: UIViewController, UITableViewDelegate, UITableV
         let showEditScreenAction = UITableViewRowAction(style: .normal, title: "Edit") { (_, _) in
             self.currentTask = TaskManager.sharedInstance.getTask(at: indexPath.row)
             self.performSegue(withIdentifier: "segToEdit", sender: self)
-            
         }
-        
         showEditScreenAction.backgroundColor = UIColor.blue
-        
         return [deleteAction, incompleteOrIncomplete, showEditScreenAction]
     }
     
