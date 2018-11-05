@@ -14,7 +14,7 @@ class Task: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var taskDescription: String = ""
     @objc dynamic var completionDate: Date? = nil
-    @objc dynamic var complete: Bool = true
+    @objc dynamic var complete: Bool = false
     @objc dynamic var priorityLevel: String = ""
 }
 
